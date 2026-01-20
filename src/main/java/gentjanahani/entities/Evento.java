@@ -20,14 +20,14 @@ public class Evento {
     @Column(name="data_evento", nullable = false)
     private LocalDate dataEvento;
     //descrizione
-    @Column(name="descizione", columnDefinition = "TEXT")
-    private String descizione;
+    @Column(name="descrizione", columnDefinition = "TEXT")
+    private String descrizione;
     //tipoEvento(PUBBLICO, PRIVATO)
     @Column(name="type", nullable = false)
     @Enumerated(EnumType.STRING)
     private EventoType tipoEvento;
     //numeroMassimoPartecipanti
-    @Column(name="mumeroMaxPartecipanti", nullable = false)
+    @Column(name="numeroMaxPartecipanti", nullable = false)
     private int numeroMaxPartecipanti;
 
     //COSTRUTTORE VUOTO OBBLIGATORIO PER TUTTE LE ENTITIES!
@@ -40,7 +40,7 @@ public class Evento {
 
         this.titolo=titolo;
         this.dataEvento=dataEvento;
-        this.descizione=descrizione;
+        this.descrizione=descrizione;
         this.tipoEvento=type;
         this.numeroMaxPartecipanti=numeroMaxPartecipanti;
 
@@ -74,11 +74,11 @@ public class Evento {
     }
 
     public String getDescizione() {
-        return descizione;
+        return descrizione;
     }
 
     public void setDescizione(String descizione) {
-        this.descizione = descizione;
+        this.descrizione = descizione;
     }
 
     public EventoType getTipoEvento() {
@@ -105,7 +105,7 @@ public class Evento {
                 "id=" + id +
                 ", titolo='" + titolo + '\'' +
                 ", dataEvento=" + dataEvento +
-                ", descizione='" + descizione + '\'' +
+                ", descizione='" + descrizione + '\'' +
                 ", tipoEvento=" + tipoEvento +
                 ", numeroMaxPartecipanti=" + numeroMaxPartecipanti +
                 '}';
