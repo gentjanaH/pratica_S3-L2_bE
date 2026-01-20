@@ -6,7 +6,7 @@
         <!-- Il nome della Persistence Unit è importante perché nel codice Java dovremo richiamarla per nome-->
 
         <!-- elenco delle entities-->
-        <!-- <class>riccardogulin.entities.Student</class>-->
+        <class>gentjanahani.entities.Evento</class>
 
 
         <properties>
