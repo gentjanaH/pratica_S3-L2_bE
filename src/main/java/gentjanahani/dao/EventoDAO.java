@@ -9,13 +9,13 @@ public class EventoDAO {
     //Questa classe ci serve per interagire con il DB.
     private final EntityManager entityManager;
 
-    public EventoDAO(EntityManager entityManager){
-        this.entityManager=entityManager;
+    public EventoDAO(EntityManager entityManager) {
+        this.entityManager = entityManager;
     }
 
-    public void save(Evento newEvento){
+    public void save(Evento newEvento) {
         //1-Chiediamo all'EntityManager di creare una transazione
-        EntityTransaction transaction=entityManager.getTransaction();
+        EntityTransaction transaction = entityManager.getTransaction();
 
         //2-Facciamo partire la transazione
         transaction.begin();
@@ -24,21 +24,21 @@ public class EventoDAO {
         entityManager.persist(newEvento);
 
         // 4. Per rendere effettiva l'operazione devo fare il COMMIT della transazione
-transaction.commit();
+        transaction.commit();
 
         // 5. Log di avvenuto salvataggio
-        System.out.println("L'evento " + newEvento.getTitolo()+ " è stato salvato corretamente.");
+        System.out.println("L'evento " + newEvento.getTitolo() + " è stato salvato correttamente.");
     }
 
-    public Evento getById(long idEvento){
-        Evento found=entityManager.find(Evento.class, idEvento);
-        if(found == null) throw new NotFoundException(idEvento);
+    public Evento getById(long idEvento) {
+        Evento found = entityManager.find(Evento.class, idEvento);
+        if (found == null) throw new NotFoundException(idEvento);
         return found;
     }
 
-    public void delete(long idEvento){
+    public void delete(long idEvento) {
         // 1. Cerco l'evento tramite id nel DB
-        Evento found=this.getById(idEvento);
+        Evento found = this.getById(idEvento);
 
         // 2. Chiediamo all'EntityManager di creare una nuova transazione
         EntityTransaction transaction = entityManager.getTransaction();
@@ -53,6 +53,6 @@ transaction.commit();
         transaction.commit();
 
         // 6. Log di avvenuta cancellazione
-        System.out.println("L' evento con id: " + idEvento +  " è stato eliminato correttamente!");
+        System.out.println("L' evento con id: " + idEvento + " è stato eliminato correttamente!");
     }
 }
